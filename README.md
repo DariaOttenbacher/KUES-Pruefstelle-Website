@@ -2,8 +2,7 @@
 
 ## Projektidee
 
-Im August 2026 hat mein Mann im Rahmen einer Prüforganisation der KÜSS eine KFZ-Prüfstelle eröffnet.
-Im August 2026 hat mein Mann im Rahmen einer Prüforganisation der KÜSS eine KFZ-Prüfstelle eröffnet.
+Im August 2026 hat mein Mann im Rahmen einer Prüforganisation der KÜS eine KFZ-Prüfstelle eröffnet.
 
 Da bisher noch keine eigene Website vorhanden ist, möchte ich im Rahmen des Moduls Web Engineering an der DHBW eine Website für die Prüfstelle erstellen. So kann ich das im Studium Gelernte direkt an einem echten Projekt anwenden und gleichzeitig etwas Nützliches für das Unternehmen entwickeln.
 
