@@ -1,0 +1,13 @@
+# KÜS Prüfstelle Breisach am Rhein
+
+Diese Website wurde im Rahmen des Moduls Web Engineering an der DHBW erstellt.
+
+Inhalte:
+- Informationen zur KÜS Prüfstelle
+- Leistungen
+- Terminvereinbarung
+- Kontaktmöglichkeiten
+- Benutzerprofile und Erinnerungsservice
+
+Zielgruppe:
+Fahrzeughalterinnen und Fahrzeughalter, die Informationen zu Fahrzeugprüfungen und Terminen suchen.
