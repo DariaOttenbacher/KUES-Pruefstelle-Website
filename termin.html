@@ -36,16 +36,18 @@
 
       <form>
         <label for="name">Name:</label><br>
-          <input type="text" id="name" name="name" required><br>
+          <input type="text" id="name" name="name" required minlength="2"><br>
 
         <label for="email">E-Mail:</label><br>
           <input type="email" id="email" name="email" required><br>
 
         <label for="telefon">Telefon:</label><br>
-          <input type="tel" id="telefon" name="telefon"><br>
+          <input type="tel" id="telefon" name="telefon" required pattern="[0-9]{10,15}"><br>
 
         <label for="datum">Wunschtermin:</label><br>
           <input type="date" id="datum" name="datum" required><br><br>
+          <!TO DO: termin begrenzen auf mittwoch und freitag per java später !>
+          <!TO DO: termin darf nicht in vergangenheit liegen per java später !>
 
         <label>
           <input type="checkbox" name="datenschutz" required>Ich stimme der Verarbeitung meiner personenbezogenen Daten zu.
