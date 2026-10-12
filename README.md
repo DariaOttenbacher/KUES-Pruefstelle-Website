@@ -1,4 +1,4 @@
-# KUESS Prüfstelle Website
+# KUES Prüfstelle Website
 
 ## Projektidee
 
