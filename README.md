@@ -26,7 +26,8 @@ Im weiteren Verlauf des Projekts könnte die Website um zusätzliche Funktionen 
 
 - Daria Ottenbacher
 
-## Teil B: 
+## Übungsblatt 1
+## Bonus Aufgabe B: 
 # KI-generierte Ideen,  die nicht ausgewählt wurden
 
 1. Fitnessstudio-Finder
@@ -44,3 +45,21 @@ Grund für die Ablehnung: Die Idee war grundsätzlich ansprechend. Ich habe mich
 4. Kinofilm-Finder
 
 Grund für die Ablehnung: Ich fand, dass man hier mit viel zu vielen Daten arbeiten müsste. Außerdem müsste man sich ein sehr durchdachtes Konzept überlegen, wie die Suche nach den ganzen verschiedenen Parametern funktionieren soll.
+
+
+## Übungsblatt 2
+## Bonus Aufgabe B: 
+
+Bonus: Maschinenlesbarkeit
+Für die Startseite wurde ein JSON-LD-Block nach schema.org eingebunden.
+
+Zusätzlich wurde eine llms.txt-Datei im Wurzelverzeichnis erstellt.
+
+Die strukturierten Daten wurden mit dem Google Rich Results Test überprüft.
+
+Ergebnis
+Es wurden zwei gültige strukturierte Datenelemente erkannt:
+
+Lokales Unternehmen
+Unternehmen
+![Ergebnis des Google Rich Results](image-1.png)
