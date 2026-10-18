@@ -1,3 +1,40 @@
+:root {
+  --bg: #ffffff;
+  --text: #333333;
+  --akzent: #E2001A;
+  --flaeche: #EFEFEF;
+  --radius: 12px;
+  --abstand: 1rem;
+}
+
+* { box-sizing: border-box; }
+
 body {
-    background-color: lightcyan;
+  margin: 0;
+  font-family: system-ui, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+main {
+  max-width: 65ch;
+  margin-inline: auto;
+  padding: var(--abstand);
+}
+
+nav {
+  display: flex;
+  gap: var(--abstand);
+  padding: var(--abstand);
+  background: var(--flaeche);
+}
+
+a { color: var(--akzent); }
+
+footer {
+  padding: var(--abstand);
+  font-size: .875rem;
+  color: var(--text);
 }
