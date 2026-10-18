@@ -29,9 +29,21 @@ nav {
   gap: var(--abstand);
   padding: var(--abstand);
   background: var(--flaeche);
+
 }
 
-a { color: var(--akzent); }
+a { 
+  color: var(--akzent);
+  text-decoration: none; 
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav a:focus-visible {
+  outline: 3px solid var(--akzent);
+} 
 
 footer {
   padding: var(--abstand);
