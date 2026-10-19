@@ -1,13 +1,20 @@
 :root {
   --bg: #ffffff;
   --text: #333333;
+  --textWeiss: #ffffff;
   --akzent: #E2001A;
   --flaeche: #EFEFEF;
   --radius: 12px;
-  --abstand: 1rem;
+  --abstand: 2rem;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; }  /*Für alle Elemente wird die angegebene Breite einschließlich padding und border berechnet.
+                                und nicht so, wie das klassisch waere 
+                                .box {
+                                    width: 300px;
+                                    padding: 20px;
+                                    border: 2px solid;
+                                }  und davon ploetzlich 344 anstatt 300*/
 
 body {
   margin: 0;
@@ -22,6 +29,14 @@ main {
   max-width: 65ch;
   margin-inline: auto;
   padding: var(--abstand);
+}
+
+.leistung {
+    padding: var(--abstand);
+    margin-bottom: var(--abstand);
+    border-radius: var(--radius);
+    background: var(--akzent);
+    color: var(--textWeiss);
 }
 
 nav {
