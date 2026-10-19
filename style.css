@@ -72,6 +72,10 @@ a {
   text-decoration: none; 
 }
 
+nav a {
+    color: var(--text);   /* Mit Absicht fuer eine Kollision gemacht (A5)*/
+}                         /*Je spezifischer ein CSS-Selektor ist, desto höher ist seine Priorität.*/
+
 nav a:hover {
   text-decoration: underline;
 }

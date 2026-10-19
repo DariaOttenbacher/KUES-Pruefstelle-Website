@@ -63,3 +63,14 @@ Es wurden zwei gültige strukturierte Datenelemente erkannt:
 Lokales Unternehmen
 Unternehmen
 ![Ergebnis des Google Rich Results](image-1.png)
+
+
+
+## Übungsblatt 3
+## Aufgabe A5:
+
+Die Regeln a { color: var(--akzent); } und nav a { color: var(--text); } stehen in Konflikt (Kollision).
+Die Regel nav a { color: var(--text); } gewinnt, weil dieser Selektor spezifischer ist als a.
+Je spezifischer ein CSS-Selektor ist, desto höher ist seine Priorität.
+![A5:Eine Kollision nachweisen](image-2.png)
+
