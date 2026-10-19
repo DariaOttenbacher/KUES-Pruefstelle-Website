@@ -25,6 +25,12 @@ body {
   background: var(--bg);
 }
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
 main {
   max-width: 65ch;
   margin-inline: auto;
@@ -37,6 +43,20 @@ main {
     border-radius: var(--radius);
     background: var(--akzent);
     color: var(--textWeiss);
+}
+
+.oldtimer {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--textWeiss);
+    color: var(--akzent);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
 }
 
 nav {
