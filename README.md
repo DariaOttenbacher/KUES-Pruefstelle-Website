@@ -74,3 +74,14 @@ Die Regel nav a { color: var(--text); } gewinnt, weil dieser Selektor spezifisch
 Je spezifischer ein CSS-Selektor ist, desto höher ist seine Priorität.
 ![A5:Eine Kollision nachweisen](image-2.png)
 
+
+## Übungsblatt 4
+## Aufgabe A3:
+
+### A3 – Drei Komponenten
+
+- Navbar: Wird auf allen Seiten verwendet und hat überall die gleichen Abstände, Farben und Navigationselemente.
+- Leistungskarten: Werden auf der Seite „Leistungen“ verwendet. Die Karten haben ein einheitliches Design mit gleichen Abständen, Farben und abgerundeten Ecken.
+- Profilbereiche: Werden auf der Seite „Benutzerprofil“ verwendet. Sie haben einen grauen Hintergrund, gleiche Abstände und einen roten Rand auf der linken Seite.
+
+
