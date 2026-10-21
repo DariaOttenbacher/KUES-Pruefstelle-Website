@@ -26,6 +26,8 @@ Im weiteren Verlauf des Projekts könnte die Website um zusätzliche Funktionen 
 
 - Daria Ottenbacher
 
+----------------------------------------------------------------------------------
+
 ## Übungsblatt 1
 ## Bonus Aufgabe B: 
 # KI-generierte Ideen,  die nicht ausgewählt wurden
@@ -46,6 +48,7 @@ Grund für die Ablehnung: Die Idee war grundsätzlich ansprechend. Ich habe mich
 
 Grund für die Ablehnung: Ich fand, dass man hier mit viel zu vielen Daten arbeiten müsste. Außerdem müsste man sich ein sehr durchdachtes Konzept überlegen, wie die Suche nach den ganzen verschiedenen Parametern funktionieren soll.
 
+----------------------------------------------------------------------------------
 
 ## Übungsblatt 2
 ## Bonus Aufgabe B: 
@@ -64,7 +67,7 @@ Lokales Unternehmen
 Unternehmen
 ![Ergebnis des Google Rich Results](image-1.png)
 
-
+----------------------------------------------------------------------------------
 
 ## Übungsblatt 3
 ## Aufgabe A5:
@@ -74,14 +77,19 @@ Die Regel nav a { color: var(--text); } gewinnt, weil dieser Selektor spezifisch
 Je spezifischer ein CSS-Selektor ist, desto höher ist seine Priorität.
 ![A5:Eine Kollision nachweisen](image-2.png)
 
+## Bonus Aufgabe B: 
+
+Der Dark Mode wird über `prefers-color-scheme: dark` gesteuert. Dabei werden nur die Farbvariablen in `:root` angepasst, sodass keine zweite Kopie des Stylesheets notwendig ist.
+
+----------------------------------------------------------------------------------
 
 ## Übungsblatt 4
 ## Aufgabe A3:
-
-### A3 – Drei Komponenten
 
 - Navbar: Wird auf allen Seiten verwendet und hat überall die gleichen Abstände, Farben und Navigationselemente.
 - Leistungskarten: Werden auf der Seite „Leistungen“ verwendet. Die Karten haben ein einheitliches Design mit gleichen Abständen, Farben und abgerundeten Ecken.
 - Profilbereiche: Werden auf der Seite „Benutzerprofil“ verwendet. Sie haben einen grauen Hintergrund, gleiche Abstände und einen roten Rand auf der linken Seite.
 
+## Bonus Aufgabe B: 
 
+Das Projekt verwendet Vite mit dem Tailwind-Build. Die erzeugte CSS-Datei in `dist/assets/` ist 2,22 kB groß. Sie bleibt klein, weil beim Build nur die tatsächlich verwendeten Tailwind-Klassen berücksichtigt werden.
