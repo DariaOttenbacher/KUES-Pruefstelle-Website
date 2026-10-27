@@ -99,3 +99,12 @@ Der Dark Mode wird über `prefers-color-scheme: dark` gesteuert. Dabei werden nu
 ## Bonus Aufgabe B: 
 
 Das Projekt verwendet Vite mit dem Tailwind-Build. Die erzeugte CSS-Datei in `dist/assets/` ist 2,22 kB groß. Sie bleibt klein, weil beim Build nur die tatsächlich verwendeten Tailwind-Klassen berücksichtigt werden.
+
+----------------------------------------------------------------------------------
+
+## Übungsblatt 5
+## Aufgabe A3: Vergleich zwischen lokaler und veröffentlichter Version
+
+Die lokale und die veröffentlichte Version sehen gleich aus. Durch die korrekte Vite-Konfiguration werden die Styles und JavaScript-Dateien auch auf GitHub Pages richtig geladen.
+Alle fünf HTML-Seiten sind lokal und live erreichbar. Durch die Rollup-Konfiguration werden alle Seiten in den Build-Ordner dist übernommen.
+Auf der veröffentlichten Website treten keine 4xx- oder 5xx-Fehler auf. Der base-Pfad und die Verlinkungen wurden passend zum GitHub-Pages-Unterverzeichnis eingerichtet.
