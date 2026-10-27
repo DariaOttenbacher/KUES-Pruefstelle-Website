@@ -89,7 +89,7 @@ Die Website könnte später um zusätzliche Funktionen erweitert werden:
 
 ## Screenshot
 
-![Leistungen-Seite der KÜS Prüfstelle Website](<Screenshot Leistungen-1.png>)
+![Leistungen-Seite der KÜS Prüfstelle Website](<images/Screenshot Leistungen-1.png>)
 
 ## Dokumentation der Aufgaben
 
