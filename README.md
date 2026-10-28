@@ -30,7 +30,7 @@ Zusätzlich soll das Benutzerprofil zukünftig die Verwaltung von Kontakt- und F
 
 ## Datenquelle
 
-Eine externe API wird in einem späteren Termin ergänzt. Die konkrete Datenquelle wird noch ausgewählt und anschließend auf die Art des benötigten API-Keys sowie auf CORS-Unterstützung geprüft.
+Für die Standortkarte werden Kartendaten von OpenStreetMap verwendet. Die Adresse der Prüfstelle wird über geografische Koordinaten auf einer interaktiven Leaflet-Karte dargestellt. Dafür ist kein geheimer API-Key erforderlich.(mehr dazu im [AUFGABEN.md](./AUFGABEN.md).)
 
 ## Lokale Ausführung
 

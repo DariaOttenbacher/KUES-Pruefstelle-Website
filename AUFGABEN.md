@@ -39,8 +39,6 @@ Die strukturierten Daten wurden mit dem Google Rich Results Test überprüft.
 Ergebnis
 Es wurden zwei gültige strukturierte Datenelemente erkannt:
 
-Lokales Unternehmen
-Unternehmen
 ![Ergebnis des Google Rich Results](images/image-1.png)
 
 ----------------------------------------------------------------------------------
@@ -52,6 +50,7 @@ Unternehmen
 Die Regeln a { color: var(--akzent); } und nav a { color: var(--text); } stehen in Konflikt (Kollision).
 Die Regel nav a { color: var(--text); } gewinnt, weil dieser Selektor spezifischer ist als a.
 Je spezifischer ein CSS-Selektor ist, desto höher ist seine Priorität.
+
 ![A5:Eine Kollision nachweisen](images/image-2.png)
 
 ### Bonus Aufgabe B: Dark Mode
@@ -81,3 +80,40 @@ Das Projekt verwendet Vite mit dem Tailwind-Build. Die erzeugte CSS-Datei in `di
 Die lokale und die veröffentlichte Version sehen gleich aus. Durch die korrekte Vite-Konfiguration werden die Styles und JavaScript-Dateien auch auf GitHub Pages richtig geladen.
 Alle fünf HTML-Seiten sind lokal und live erreichbar. Durch die Rollup-Konfiguration werden alle Seiten in den Build-Ordner dist übernommen.
 Auf der veröffentlichten Website treten keine 4xx- oder 5xx-Fehler auf. Der base-Pfad und die Verlinkungen wurden passend zum GitHub-Pages-Unterverzeichnis eingerichtet.
+
+### Aufgabe A5: API, CORS und Sicherheit
+
+Für die Kartenfunktion auf der Kontaktseite wird die **Nominatim API von OpenStreetMap** verwendet.  
+Über `fetch()` wird die Adresse der KÜS Prüfstelle Breisach am Rhein an Nominatim gesendet, um die geografischen Koordinaten (Breiten- und Längengrad) zu erhalten.
+
+Die erhaltenen Koordinaten werden anschließend mit der JavaScript-Bibliothek **Leaflet** verwendet, um die Position der Prüfstelle auf einer interaktiven Karte darzustellen.
+
+### API-Key
+
+Für die verwendete Nominatim API wird in diesem Projekt **kein API-Key benötigt**.  
+Daher muss kein Schlüssel im Quellcode oder im Repository gespeichert werden.
+
+**Key-Art:** kein API-Key / keine Authentifizierung über einen geheimen Schlüssel.
+
+### CORS-Test
+
+Der Zugriff auf die Nominatim API wurde im Browser mit `fetch()` getestet.  
+Der Request konnte erfolgreich ausgeführt und die Antwort im Browser verarbeitet werden.
+
+**Ergebnis des CORS-Tests:** erfolgreich.
+
+### Sicherheit des öffentlichen Repositories
+
+Das Repository wurde auf sensible Daten und Secrets überprüft.
+
+Dabei wurde insbesondere geprüft, dass keine:
+
+- API-Keys
+- Passwörter
+- Zugangsdaten
+- Tokens
+- sonstigen geheimen Schlüssel
+
+im Repository enthalten sind.
+
+**Ergebnis:** Es wurden keine Secrets gefunden. Das öffentliche Repository enthält keine Zugangsdaten oder andere Informationen, die geheim gehalten werden müssen.

@@ -6,7 +6,9 @@
   <title>KÜS Prüfstelle Breisach am Rhein - Kontakt</title>
   <meta name="description" content="Kontaktieren Sie die KÜS Prüfstelle Breisach am Rhein und finden Sie unsere Anschrift, Öffnungszeiten und Kontaktmöglichkeiten.">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
+
 <body>
  <header>
    <nav aria-label="Hauptmenü">
@@ -21,33 +23,49 @@
   </header>
 
   <main>
-    <h1>Kontakt</h1>
-
-    <section>
-        <h2>So erreichen Sie uns</h2>
-            <p>Bei Fragen zu unseren Leistungen oder zur Terminvereinbarung stehen wir Ihnen gerne zur Verfügung.</p>
+    <section class="mb-10"></section>
+      <h1 class="mb-3 text-3xl font-bold">Kontakt</h1>
+      <p class="text-gray-600">Bei Fragen zu unseren Leistungen oder zur Terminvereinbarung stehen wir Ihnen gerne zur Verfügung.</p>
     </section>
+
+<div class="grid gap-6 md:grid-cols-3">
+
+  <section class="rounded-xl bg-white p-6 shadow-md"> 
+    <h2 class="mb-4 text-xl font-semibold">Kontaktmöglichkeiten</h2>
+
+    <p>Telefon:
+      <a class="text-red-600 hover:underline" href="tel:+4976679339320">+49 (7667) 933 93 20</a>
+    </p>
+
+    <p class="mt-2">E-Mail: 
+      <a class="text-red-600 hover:underline" href="mailto:ib.ottenbacher@hotmail.com">ib.ottenbacher@hotmail.com</a>
+    </p>
+  </section>
+
+
+  <section class="rounded-xl bg-white p-6 shadow-md">
+    <h2 class="mb-4 text-xl font-semibold">Öffnungszeiten</h2>
+      <p>Montag bis Freitag:</p>
+      <p class="font-medium">08:00 - 18:00 Uhr</p>
+      <p class="mt-3">Samstag:</p>
+      <p class="font-medium">nach Vereinbarung</p>
+  </section>
     
-    <section>
-            <h2>Anschrift</h2>
-            <address>
-                KÜS Prüfstelle Breisach am Rhein <br>
-                Leopoldschanze 34 <br>
-                79206 Breisach am Rhein
-            </address>
-    </section>
+  <section class="rounded-xl bg-white p-6 shadow-md">
+    <h2 class="mb-4 text-xl font-semibold">Anschrift</h2>
+        <address class="not-italic">
+            KÜS Prüfstelle Breisach am Rhein <br>
+            Leopoldschanze 34 <br>
+            79206 Breisach am Rhein
+        </address>
+  </section>
 
-    <section>
-        <h2>Kontaktmöglichkeiten</h2>
-            <p>Telefon: <a href="tel:+4976679339320">+49 (7667) 933 93 20</a></p>
-            <p>E-Mail: <a href="mailto:ib.ottenbacher@hotmail.com">ib.ottenbacher@hotmail.com</a></p>
-    </section>
+  <section class="mt-10">
+    <h2 class="mb-4 text-2xl font-semibold">Anfahrt</h2>
+    <div id="map" class="h-100 w-full overflow-hidden rounded-xl shadow-md"></div>
+  </section>
 
-    <section>
-        <h2>Öffnungszeiten</h2>
-            <p>Montag bis Freitag: 08:00 - 18:00 Uhr</p>
-            <p>Samstag: nach Vereinbarung</p>
-    </section>
+
 
   </main>
   <footer>
@@ -58,5 +76,8 @@
     </address>
     <p>&copy; <span id="jahr">2026</span></p>
 </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/map.js"></script>
 </body>
 </html>
