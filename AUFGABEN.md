@@ -117,3 +117,7 @@ Dabei wurde insbesondere geprüft, dass keine:
 im Repository enthalten sind.
 
 **Ergebnis:** Es wurden keine Secrets gefunden. Das öffentliche Repository enthält keine Zugangsdaten oder andere Informationen, die geheim gehalten werden müssen.
+
+### Bonus Aufgabe B2: Serverless Function online (Vercel)
+
+Für den Zugriff auf The News API wird eine Serverless Function auf Vercel verwendet, damit der geheime API\-Token nicht im Frontend oder im öffentlichen GitHub\-Repository gespeichert werden muss. GitHub Pages reicht für statische Inhalte und öffentliche APIs ohne geheimen Schlüssel aus.
