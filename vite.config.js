@@ -3,7 +3,9 @@ import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  base: '/KUES-Pruefstelle-Website/',
+   base: process.env.VERCEL
+    ? '/'
+    : '/KUES-Pruefstelle-Website/',
 
   plugins: [
     tailwindcss(),
