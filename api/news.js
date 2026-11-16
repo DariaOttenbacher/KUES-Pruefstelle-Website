@@ -5,9 +5,8 @@ const THEMEN = [
   "H-Kennzeichen",
   "Gasprüfung",
   "Fahrzeugprüfung",
-  "KÜS",
-  "KUS",
-  "KUES"
+  "KÜS","KUS","KUES",
+  "tüv", "TÜV", "tuv"
 ];
 
 const KONKURRENTEN = [
