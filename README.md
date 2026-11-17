@@ -20,7 +20,9 @@ Die Website bietet derzeit folgende Inhalte und Funktionen:
 
 Die veröffentlichte Website ist unter folgender Adresse erreichbar:
 
-https://dariaottenbacher.github.io/KUES-Pruefstelle-Website/
+GitHub: https://dariaottenbacher.github.io/KUES-Pruefstelle-Website/
+
+Vercel: https://kues-pruefstelle-website-nslp.vercel.app/index.html
 
 ## Geplante Inhalte
 
