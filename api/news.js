@@ -1,19 +1,17 @@
 const THEMEN = [
   "Hauptuntersuchung",
   "Abgasuntersuchung",
-  "Oldtimer",
-  "H-Kennzeichen",
-  "Gasprüfung",
-  "Fahrzeugprüfung",
-  "KÜS","KUS","KUES",
-  "tüv", "TÜV", "tuv"
+  "Oldtimer H-Kennzeichen",
+  "KÜS Fahrzeugprüfung"
 ];
 
 const KONKURRENTEN = [
   "dekra",
   "gtü",
   "gtu",
-  "gtue"
+  "gtue",
+  "tüv",
+  "tuv"
 ];
 
 export default async function handler(req, res) {
@@ -26,8 +24,10 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Für jedes Thema wird eine eigene URL erzeugt.
-    const anfragen = THEMEN.map((thema) => {
+    const ergebnisse = [];
+
+    // Anfragen nacheinander ausführen, nicht alle gleichzeitig.
+    for (const thema of THEMEN) {
       const url = new URL(
         "https://api.thenewsapi.com/v1/news/all"
       );
@@ -37,38 +37,28 @@ export default async function handler(req, res) {
       url.searchParams.set("search", thema);
       url.searchParams.set("limit", "3");
 
-      return fetch(url);
-    });
+      const antwort = await fetch(url);
 
-    // Alle sieben API-Anfragen werden parallel ausgeführt.
-    const antworten = await Promise.all(anfragen);
+      if (!antwort.ok) {
+        const fehlermeldung = await antwort.text();
 
-    // Prüfen, ob eine Anfrage fehlgeschlagen ist.
-    const fehlerhafteAntwort = antworten.find(
-      (antwort) => !antwort.ok
-    );
+        console.error(
+          `News-API-Fehler bei "${thema}":`,
+          antwort.status,
+          fehlermeldung
+        );
 
-    if (fehlerhafteAntwort) {
-      return res.status(502).json({
-        fehler:
-          `News-API antwortet mit ${fehlerhafteAntwort.status}`
-      });
+        // Bei einem fehlerhaften Thema trotzdem weitermachen.
+        continue;
+      }
+
+      const daten = await antwort.json();
+      ergebnisse.push(...(daten.data ?? []));
     }
 
-    // Alle Antworten werden von JSON in JavaScript-Objekte umgewandelt.
-    const ergebnisse = await Promise.all(
-      antworten.map((antwort) => antwort.json())
-    );
-
-    // Die Artikel aller Themen werden in einem Array zusammengeführt.
-    const alleArtikel = ergebnisse.flatMap(
-      (ergebnis) => ergebnis.data ?? []
-    );
-
-    // Doppelte Artikel anhand von uuid oder URL entfernen.
     const eindeutigeArtikel = Array.from(
       new Map(
-        alleArtikel.map((artikel) => [
+        ergebnisse.map((artikel) => [
           artikel.uuid ?? artikel.url,
           artikel
         ])
@@ -87,39 +77,40 @@ export default async function handler(req, res) {
           .join(" ")
           .toLowerCase();
 
-        const nenntKonkurrenten = KONKURRENTEN.some(
-          (name) => text.includes(name)
-        );
-
-        return !nenntKonkurrenten;
-      })
-      .sort((artikelA, artikelB) => {
-        return (
-          new Date(artikelB.published_at) -
-          new Date(artikelA.published_at)
+        return !KONKURRENTEN.some((name) =>
+          text.includes(name)
         );
       })
+      .sort(
+        (a, b) =>
+          new Date(b.published_at) -
+          new Date(a.published_at)
+      )
       .slice(0, 3)
       .map((artikel) => ({
         title: artikel.title,
-        description: artikel.description,
+        description:
+          artikel.description || artikel.snippet,
         url: artikel.url,
         image_url: artikel.image_url,
         published_at: artikel.published_at,
         source: artikel.source
       }));
 
-    // Ergebnis für 30 Minuten bei Vercel zwischenspeichern.
+    // 6 Stunden Cache statt nur 30 Minuten.
     res.setHeader(
       "Cache-Control",
-      "s-maxage=1800, stale-while-revalidate=3600"
+      "public, s-maxage=21600, stale-while-revalidate=86400"
     );
 
     return res.status(200).json({
       artikel: passendeArtikel
     });
   } catch (fehler) {
-    console.error("Fehler beim Laden der Nachrichten:", fehler);
+    console.error(
+      "Fehler beim Laden der Nachrichten:",
+      fehler
+    );
 
     return res.status(500).json({
       fehler: "News-API nicht erreichbar"
