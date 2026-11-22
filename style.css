@@ -118,3 +118,7 @@ footer {
   font-size: .875rem;
   color: var(--text);
 }
+
+#news-ausgabe a {
+  color: white;
+}
