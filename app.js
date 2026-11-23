@@ -71,4 +71,35 @@ async function ladeNews() {
   }
 }
 
-ladeNews();
+if (newsAusgabe) {
+  ladeNews();
+}
+
+const terminFormular = document.querySelector("#termin-formular");
+const datumFeld = document.querySelector("#datum");
+const terminMeldung = document.querySelector("#termin-meldung");
+
+if (terminFormular && datumFeld && terminMeldung) {
+
+  // Vergangene Tage im Kalender sperren.
+  const heute = new Date().toISOString().split("T")[0];
+  datumFeld.min = heute;
+
+  terminFormular.addEventListener("submit", (event) => {
+    // Formular nicht normal abschicken und Seite nicht neu laden.
+    event.preventDefault();
+
+    const datum = new Date(datumFeld.value + "T00:00:00");
+    const wochentag = datum.getDay();
+
+    // 3 = Mittwoch, 5 = Freitag
+    if (wochentag !== 3 && wochentag !== 5) {
+      terminMeldung.textContent =
+        "Termine sind nur mittwochs und freitags möglich.";
+      return;
+    }
+
+    terminMeldung.textContent =
+      "Ihre Terminanfrage wurde erfolgreich aufgenommen.";
+  });
+}

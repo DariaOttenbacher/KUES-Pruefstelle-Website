@@ -6,6 +6,7 @@
   <title>KÜS Prüfstelle Breisach am Rhein - Termin buchen</title>
   <meta name="description" content="Vereinbaren Sie bequem einen Termin für Ihre Hauptuntersuchung oder weitere Prüfleistungen.">
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
 </head>
 <body>
  <header>
@@ -43,7 +44,7 @@
     <section>
       <h2>Online-Terminanfrage</h2>
 
-      <form>
+      <form id="termin-formular">
         <label for="name">Name:</label><br>
           <input type="text" id="name" name="name" required minlength="2"><br>
 
@@ -55,14 +56,13 @@
 
         <label for="datum">Wunschtermin:</label><br>
           <input type="date" id="datum" name="datum" required><br><br>
-          <!--TO DO: termin begrenzen auf mittwoch und freitag per java später -->
-          <!--TO DO: termin darf nicht in vergangenheit liegen per java später -->
-
+          
         <label>
           <input type="checkbox" name="datenschutz" required>Ich stimme der Verarbeitung meiner personenbezogenen Daten zu.
         </label><br><br>
 
         <button type="submit">Termin anfragen</button>
+        <p id="termin-meldung"></p>
 </form>
     </section>
 
