@@ -194,3 +194,17 @@ Für das Projekt wurden folgende Sicherheitsaspekte überprüft:
 6. **Saubere Fehlermeldungen:** Nutzer erhalten verständliche Fehlermeldungen ohne Stacktraces oder interne technische Details.
 
 **XSS-Test:** Die Eingabe `<img src=x onerror=alert(1)>` wurde in den Eingabefeldern getestet. Es wurde kein JavaScript ausgeführt.
+
+
+### Bonus Aufgabe B: localStorage
+
+Auf der Seite „Leistungen“ kann die Hauptuntersuchung mit der Schaltfläche **„Merken“** markiert werden.
+
+Der Zustand wird mit `localStorage` im Browser gespeichert. Dadurch bleibt die Auswahl auch nach einem Neuladen der Seite erhalten.
+
+Beim Start der Seite wird der gespeicherte Wert wieder ausgelesen. Ungültige oder veraltete Werte werden abgefangen und aus dem `localStorage` entfernt, damit die Seite weiterhin funktioniert.
+
+**Test:**
+- Leistung mit „Merken“ ausgewählt → nach `F5` weiterhin als „Gemerkt ✓“ angezeigt.
+- Ungültigen Wert `abc` manuell im `localStorage` eingetragen → nach dem Neuladen wurde der ungültige Wert abgefangen und die Seite funktionierte weiterhin.
+![Local Storage](images/local_storage.png)
