@@ -75,17 +75,22 @@ if (newsAusgabe) {
   ladeNews();
 }
 
-const terminFormular = document.querySelector("#termin-formular");
-const datumFeld = document.querySelector("#datum");
-const terminMeldung = document.querySelector("#termin-meldung");
+  const terminFormular = document.querySelector("#termin-formular");
+  const datumFeld = document.querySelector("#datum");
+  const terminMeldung = document.querySelector("#termin-meldung");
 
-if (terminFormular && datumFeld && terminMeldung) {
+  if (terminFormular && datumFeld && terminMeldung) {
 
-  // Vergangene Tage im Kalender sperren.
-  const heute = new Date().toISOString().split("T")[0];
-  datumFeld.min = heute;
+    // Vergangene Tage im Kalender sperren.
+  const heute = new Date();
+  const jahr = heute.getFullYear();
+  const monat = String(heute.getMonth() + 1).padStart(2, "0");
+  const tag = String(heute.getDate()).padStart(2, "0");
 
-  terminFormular.addEventListener("submit", (event) => {
+  datumFeld.min = `${jahr}-${monat}-${tag}`;
+  
+
+  terminFormular.addEventListener("submit", async (event) => {
     // Formular nicht normal abschicken und Seite nicht neu laden.
     event.preventDefault();
 
@@ -95,11 +100,40 @@ if (terminFormular && datumFeld && terminMeldung) {
     // 3 = Mittwoch, 5 = Freitag
     if (wochentag !== 3 && wochentag !== 5) {
       terminMeldung.textContent =
-        "Termine sind nur mittwochs und freitags möglich.";
+        "Termine sind nur Mittwochs und Freitags möglich.";
       return;
     }
 
-    terminMeldung.textContent =
-      "Ihre Terminanfrage wurde erfolgreich aufgenommen.";
+   const name = document.querySelector("#name").value;
+const email = document.querySelector("#email").value;
+const telefon = document.querySelector("#telefon").value;
+
+try {
+  const antwort = await fetch("/api/termin", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      telefon: telefon,
+      datum: datumFeld.value
+    })
+  });
+
+  if (!antwort.ok) {
+    throw new Error("E-Mail konnte nicht gesendet werden.");
+  }
+
+  terminMeldung.textContent =
+    "Ihre Terminanfrage wurde erfolgreich gesendet.";
+
+  terminFormular.reset();
+
+} catch (fehler) {
+  terminMeldung.textContent =
+    "Die Terminanfrage konnte nicht gesendet werden.";
+}
   });
 }
