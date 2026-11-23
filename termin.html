@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>KÜS Prüfstelle Breisach am Rhein - Termin buchen</title>
-  <meta name="description" content="Vereinbaren Sie bequem einen Termin für Ihre Hauptuntersuchung oder weitere Prüfleistungen.">
+
+  <meta
+    name="description"
+    content="Vereinbaren Sie bequem einen Termin für Ihre Hauptuntersuchung oder weitere Prüfleistungen."
+  >
+
   <link rel="stylesheet" href="style.css">
   <script type="module" src="app.js"></script>
 </head>
-<body>
- <header>
+
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Navigation -->
+  <header class="bg-white shadow-sm">
     <nav
       aria-label="Hauptmenü"
-      class="flex items-center justify-between px-6 py-4">
+      class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+    >
+
       <a href="index.html">
         <img
           src="./kus-seeklogo.png"
@@ -20,60 +32,292 @@
           class="h-14 w-auto"
         >
       </a>
-        <ul>
-            <li><a href="index.html">Startseite</a></li>
-            <li><a href="leistungen.html">Leistungen</a></li>
-            <li><a href="termin.html"  aria-current="page">Termin buchen</a></li>
-            <li><a href="profile.html">Benutzerprofile</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
+
+      <ul class="flex gap-6">
+        <li>
+          <a href="index.html">Startseite</a>
+        </li>
+
+        <li>
+          <a href="leistungen.html">Leistungen</a>
+        </li>
+
+        <li>
+          <a
+            href="termin.html"
+            aria-current="page"
+            class="font-semibold text-red-700"
+          >
+            Termin buchen
+          </a>
+        </li>
+
+        <li>
+          <a href="profile.html">Benutzerprofile</a>
+        </li>
+
+        <li>
+          <a href="kontakt.html">Kontakt</a>
+        </li>
       </ul>
+
     </nav>
   </header>
-  <main>
-    <h1>Termin buchen</h1>
-    <p>Für die Durchführung einer Hauptuntersuchung oder einer anderen Prüfleistung können Sie auf verschiedenen Wegen einen Termin vereinbaren.</p>
-    <section>
-        <ul>
-            <li>Online-Terminvereinbarung</li>
-            <li>Telefonische Terminvereinbarung</li>
-            <li>per E-Mail</li>
-            <li>Persönliche Terminvereinbarung vor Ort</li>
-            </ul>
+
+
+  <main class="mx-auto max-w-6xl px-6 py-12">
+
+    <!-- Einleitung -->
+    <section class="mb-10">
+
+      <h1 class="mb-4 text-4xl font-bold text-gray-900">
+        Termin buchen
+      </h1>
+
+      <p class="max-w-3xl text-lg leading-relaxed text-gray-600">
+        Vereinbaren Sie bequem einen Termin für Ihre
+        Hauptuntersuchung oder eine andere Prüfleistung.
+        Termine sind mittwochs und freitags möglich.
+      </p>
+
     </section>
 
-    <section>
-      <h2>Online-Terminanfrage</h2>
 
-      <form id="termin-formular">
-        <label for="name">Name:</label><br>
-          <input type="text" id="name" name="name" required minlength="2"><br>
+    <!-- Terminformular -->
+    <section
+      class="mx-auto max-w-2xl overflow-hidden rounded-2xl bg-white shadow-lg"
+    >
 
-        <label for="email">E-Mail:</label><br>
-          <input type="email" id="email" name="email" required><br>
+      <!-- Roter Kopfbereich -->
+      <div class="bg-red-700 px-8 py-6 text-white">
 
-        <label for="telefon">Telefon:</label><br>
-          <input type="tel" id="telefon" name="telefon" required pattern="[0-9]{10,15}"><br>
+        <h2 class="text-2xl font-bold">
+          Online-Terminanfrage
+        </h2>
 
-        <label for="datum">Wunschtermin:</label><br>
-          <input type="date" id="datum" name="datum" required><br><br>
-          
-        <label>
-          <input type="checkbox" name="datenschutz" required>Ich stimme der Verarbeitung meiner personenbezogenen Daten zu.
-        </label><br><br>
+        <p class="mt-2 text-red-100">
+          Geben Sie Ihre Kontaktdaten und Ihren gewünschten
+          Termin ein.
+        </p>
 
-        <button type="submit">Termin anfragen</button>
-        <p id="termin-meldung"></p>
-</form>
+      </div>
+
+
+      <form
+        id="termin-formular"
+        class="space-y-6 p-8"
+      >
+
+        <!-- Name -->
+        <div>
+          <label
+            for="name"
+            class="mb-2 block font-medium text-gray-700"
+          >
+            Name
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            minlength="2"
+            autocomplete="name"
+            placeholder="Max Mustermann"
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-red-600 focus:ring-2 focus:ring-red-100"
+          >
+        </div>
+
+
+        <!-- E-Mail -->
+        <div>
+          <label
+            for="email"
+            class="mb-2 block font-medium text-gray-700"
+          >
+            E-Mail
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="max.mustermann@example.de"
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-red-600 focus:ring-2 focus:ring-red-100"
+          >
+        </div>
+
+
+        <!-- Telefon -->
+        <div>
+          <label
+            for="telefon"
+            class="mb-2 block font-medium text-gray-700"
+          >
+            Telefon
+          </label>
+
+          <input
+            type="tel"
+            id="telefon"
+            name="telefon"
+            required
+            pattern="[0-9]{10,15}"
+            autocomplete="tel"
+            placeholder="076679339320"
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-red-600 focus:ring-2 focus:ring-red-100"
+          >
+
+          <p class="mt-2 text-sm text-gray-500">
+            Bitte geben Sie 10 bis 15 Ziffern ohne Leerzeichen ein.
+          </p>
+        </div>
+
+
+        <!-- Datum -->
+        <div>
+          <label
+            for="datum"
+            class="mb-2 block font-medium text-gray-700"
+          >
+            Wunschtermin
+          </label>
+
+          <input
+            type="date"
+            id="datum"
+            name="datum"
+            required
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-red-600 focus:ring-2 focus:ring-red-100"
+          >
+
+          <div
+            class="mt-3 rounded-lg bg-gray-50 px-4 py-3 text-sm text-gray-600"
+          >
+            <strong>Mögliche Termine:</strong>
+            Mittwoch und Freitag.
+            Vergangene Termine können nicht ausgewählt werden.
+          </div>
+        </div>
+
+
+        <!-- Datenschutz -->
+        <label
+          class="flex cursor-pointer items-start gap-3 rounded-lg border border-gray-200 bg-gray-50 p-4"
+        >
+
+          <input
+            type="checkbox"
+            name="datenschutz"
+            required
+            class="mt-1 h-4 w-4"
+          >
+
+          <span class="text-sm leading-relaxed text-gray-600">
+            Ich stimme der Verarbeitung meiner personenbezogenen
+            Daten zur Bearbeitung meiner Terminanfrage zu.
+          </span>
+
+        </label>
+
+
+        <!-- Button -->
+        <button
+          type="submit"
+          class="w-full rounded-lg bg-red-700 px-6 py-3 font-semibold text-white transition hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
+        >
+          Termin anfragen
+        </button>
+
+
+        <!-- Meldung aus JavaScript -->
+        <p
+          id="termin-meldung"
+          class="text-center font-medium"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
     </section>
 
-    <section>   
-        <h2>Benötigte Informationen</h2>
-            <p>Bitte halten Sie für die Terminvereinbarung Ihre Kontaktdaten sowie die wichtigsten Informationen zu Ihrem Fahrzeug bereit.</p>
+
+    <!-- Weitere Möglichkeiten -->
+    <section class="mx-auto mt-12 max-w-2xl">
+
+      <h2 class="mb-5 text-2xl font-bold">
+        Weitere Möglichkeiten zur Terminvereinbarung
+      </h2>
+
+      <div class="grid gap-4 sm:grid-cols-3">
+
+        <div class="rounded-xl bg-white p-5 shadow-sm">
+          <h3 class="mb-2 font-semibold">
+            Telefon
+          </h3>
+
+          <a
+            href="tel:+4976679339320"
+            class="text-red-700"
+          >
+            +49 (7667) 933 93 20
+          </a>
+        </div>
+
+
+        <div class="rounded-xl bg-white p-5 shadow-sm">
+          <h3 class="mb-2 font-semibold">
+            E-Mail
+          </h3>
+
+          <a
+            href="mailto:ib.ottenbacher@hotmail.com"
+            class="break-all text-red-700"
+          >
+            ib.ottenbacher@hotmail.com
+          </a>
+        </div>
+
+
+        <div class="rounded-xl bg-white p-5 shadow-sm">
+          <h3 class="mb-2 font-semibold">
+            Vor Ort
+          </h3>
+
+          <p class="text-gray-600">
+            Persönliche Terminvereinbarung in unserer Prüfstelle.
+          </p>
+        </div>
+
+      </div>
+
     </section>
 
-    
+
+    <!-- Hinweise -->
+    <section
+      class="mx-auto mt-12 max-w-2xl rounded-xl border border-gray-200 bg-white p-6"
+    >
+
+      <h2 class="mb-3 text-xl font-bold">
+        Benötigte Informationen
+      </h2>
+
+      <p class="leading-relaxed text-gray-600">
+        Bitte halten Sie für die Terminvereinbarung Ihre
+        Kontaktdaten sowie die wichtigsten Informationen zu
+        Ihrem Fahrzeug bereit.
+      </p>
+
+    </section>
+
   </main>
-  <footer>
+
+
+   <footer>
     <address>
         KÜS Prüfstelle Breisach am Rhein<br>
         Telefon: <a href="tel:+4976679339320">+49 (7667) 933 93 20</a><br>
@@ -81,5 +325,6 @@
     </address>
     <p>&copy; <span id="jahr">2026</span></p>
 </footer>
+
 </body>
 </html>

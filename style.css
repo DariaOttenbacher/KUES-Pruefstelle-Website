@@ -86,6 +86,56 @@ main {
   padding: var(--abstand);
 }
 
+.hero {
+  min-height: 480px;
+
+  background-image: url("./Auto Breisach .png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+
+.hero-inhalt {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: var(--abstand);
+}
+
+.hero-inhalt h1 {
+  max-width: 600px;
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+.hero-inhalt p {
+  max-width: 600px;
+}
+
+.hero-untertitel {
+  font-size: 1.5rem;
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 1.4rem;
+
+  border-radius: var(--radius);
+  background: var(--akzent);
+  color: var(--textWeiss);
+
+  font-weight: 600;
+}
+
+.hero-button:hover {
+  opacity: 0.9;
+}
+
 .leistungen {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -114,9 +164,41 @@ main {
 }
 
 footer {
-  padding: var(--abstand);
-  font-size: .875rem;
-  color: var(--text);
+  margin-top: 3rem;
+  padding: 2rem max(var(--abstand), calc((100% - 1200px) / 2));
+  background: #292929;
+  color: var(--textWeiss);
+  border-top: 4px solid var(--akzent);
+  font-size: 0.9rem;
+}
+
+footer address {
+  font-style: normal;
+  line-height: 1.8;
+}
+
+footer address,
+footer p,
+footer span {
+  color: inherit;
+}
+
+footer a,
+footer a:visited {
+  color: var(--textWeiss);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--akzent);
+}
+
+footer p {
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 #news-ausgabe a {
