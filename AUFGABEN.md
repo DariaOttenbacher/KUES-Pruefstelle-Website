@@ -121,3 +121,50 @@ im Repository enthalten sind.
 ### Bonus Aufgabe B2: Serverless Function online (Vercel)
 
 Für den Zugriff auf The News API wird eine Serverless Function auf Vercel verwendet, damit der geheime API\-Token nicht im Frontend oder im öffentlichen GitHub\-Repository gespeichert werden muss. GitHub Pages reicht für statische Inhalte und öffentliche APIs ohne geheimen Schlüssel aus.
+
+
+----------------------------------------------------------------------------------
+
+## Übungsblatt 6
+
+### Aufgabe A4: Fehlersuche
+
+#### Fehler 1 – Falscher Selektor für das Eingabefeld
+
+**Symptom:** Das Eingabefeld ("eingabe") konnte durch JavaScript nicht gefunden werden.  
+**Ursache:** Im JavaScript wurde `#eingabe` verwendet, im HTML besitzt das Eingabefeld aber die ID `halt`.  
+**Fix:** `#eingabe` wurde durch `#halt` ersetzt. 
+(Zeile 5, app.js)
+
+
+#### Fehler 2 – Tippfehler beim Submit-Event
+
+**Symptom:** Beim Klick auf „Hinzufügen“ passierte nichts und die Konsole zeigte zunächst keinen Fehler.  
+**Ursache:** Das Event wurde als `sumbit` statt `submit` geschrieben. Dadurch wurde der Event-Handler nie ausgeführt.  
+**Fix:** `sumbit` wurde zu `submit` geändert.
+(Zeile 11, app.js)
+
+
+#### Fehler 3 – Selektor für die Liste fehlt
+
+**Symptom:** Beim Hinzufügen erschien die Fehlermeldung `Cannot read properties of null (reading 'appendChild')`.  
+**Ursache:** Die Liste wurde in JavaScript nicht mit `document.querySelector()` ausgewählt. Dadurch gab es keine Referenz auf das HTML-Element `#liste`.  
+**Fix:** Die fehlende Zeile `const liste = document.querySelector("#liste");` wurde ergänzt.
+(Zeile 22-24, app.js)
+
+
+### Fehler 4 – Tippfehler bei `length`
+
+**Symptom:** Die Haltestellen wurden angezeigt, aber der Zähler zeigte nicht die richtige Anzahl an.  
+**Ursache:** Die Eigenschaft `length` wurde als `lenght` geschrieben.  
+**Fix:** `lenght` wurde zu `length` geändert.
+(Zeile 27, app.js)
+---
+
+### Fehler 5 – Zuweisung statt Vergleich
+
+**Symptom:** Der Fehler war auf der Webseite zunächst nicht sichtbar, weil das Eingabefeld durch `required` und `minlength="3"` bereits im HTML validiert wird.
+**Ursache:** In `if (name.length = 0)` wird mit `=` eine Zuweisung verwendet. An dieser Stelle soll aber geprüft werden, ob die Länge gleich `0` ist.
+**Fix:** Der Zuweisungsoperator `=` wurde durch den Vergleichsoperator `===` ersetzt:
+`if (name.length === 0)`
+(Zeile 16, app.js)
