@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       from: "KÜS Terminanfrage <onboarding@resend.dev>",
 
       // Zunächst deine bei Resend verwendete E-Mail-Adresse einsetzen
-      to: ["Daria.Ottenbacher@hotmail.com"],
+        to: ["ottenbacher.dari.a25@student.dhbw-karlsruhe.de"],
 
       subject: `Neue Terminanfrage von ${name}`,
 
