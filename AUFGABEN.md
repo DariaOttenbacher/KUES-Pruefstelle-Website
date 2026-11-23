@@ -207,4 +207,4 @@ Beim Start der Seite wird der gespeicherte Wert wieder ausgelesen. Ungültige od
 **Test:**
 - Leistung mit „Merken“ ausgewählt → nach `F5` weiterhin als „Gemerkt ✓“ angezeigt.
 - Ungültigen Wert `abc` manuell im `localStorage` eingetragen → nach dem Neuladen wurde der ungültige Wert abgefangen und die Seite funktionierte weiterhin.
-![Local Storage](images/local_storage.png)
+![Local Storage](images/local-storage.png)
