@@ -151,3 +151,52 @@ try {
 }
   });
 }
+
+
+// Bonus: Leistung über einen Reload hinweg merken
+const huButton = document.querySelector("#hu-merken");
+const huLeistung = document.querySelector("#leistung-hu");
+
+if (huButton && huLeistung) {
+  let huGemerkt = false;
+
+  // Gespeicherten Zustand beim Start lesen.
+  try {
+    const gespeichert = localStorage.getItem("huGemerkt");
+
+    if (gespeichert !== null) {
+      const wert = JSON.parse(gespeichert);
+
+      if (typeof wert === "boolean") {
+        huGemerkt = wert;
+      } else {
+        localStorage.removeItem("huGemerkt");
+      }
+    }
+  } catch (fehler) {
+    localStorage.removeItem("huGemerkt");
+  }
+
+  function renderHu() {
+    if (huGemerkt) {
+      huButton.textContent = "Gemerkt ✓";
+      huLeistung.classList.add("ring-4", "ring-yellow-300");
+    } else {
+      huButton.textContent = "Merken";
+      huLeistung.classList.remove("ring-4", "ring-yellow-300");
+    }
+  }
+
+  huButton.addEventListener("click", () => {
+    huGemerkt = !huGemerkt;
+
+    localStorage.setItem(
+      "huGemerkt",
+      JSON.stringify(huGemerkt)
+    );
+
+    renderHu();
+  });
+
+  renderHu();
+}

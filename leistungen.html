@@ -6,6 +6,7 @@
   <title>KÜS Prüfstelle Breisach am Rhein - Leistungen</title>
   <meta name="description" content="Informieren Sie sich über unsere Leistungen rund um die Hauptuntersuchung, Abgasuntersuchung und weitere Fahrzeugprüfungen.">
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
 </head>
 <body>
   <header>
@@ -31,11 +32,20 @@
   <main>
     <h1>Unsere Leistungen</h1>
 
-    <div class="leistungen">
+    <div class="leistungen" id="leistung-hu">
       <section class="leistung">
         <h2>Hauptuntersuchung nach §29 StVZO (HU)</h2>
           <p>Wir führen die gesetzlich vorgeschriebene Hauptuntersuchung für Ihr Fahrzeug durch.</p>
           <p>PKW, Anhänger, Motorrad, Wohnmobil, Wohnwagen</p>
+      </section>
+
+       <button
+          type="button"
+          id="hu-merken"
+          class="mt-4 rounded-lg bg-white px-4 py-2 font-semibold text-red-700"
+        >
+          Merken
+        </button>
       </section>
       
       <section class="p-6 rounded-xl bg-[#E2001A] text-white">

@@ -168,3 +168,29 @@ Für den Zugriff auf The News API wird eine Serverless Function auf Vercel verwe
 **Fix:** Der Zuweisungsoperator `=` wurde durch den Vergleichsoperator `===` ersetzt:
 `if (name.length === 0)`
 (Zeile 16, app.js)
+
+
+### Aufgabe A5: KI-Log. Fälle, in denen die KI falsch lag
+
+1. **Fehlersuche A4:** Die KI vermutete bei Fehler 3 eine falsche Groß-/Kleinschreibung. Tatsächlich fehlte die komplette Zeile für `querySelector("#liste")`.
+
+2. **Leere Eingabe:** Die KI übersah zunächst, dass `required` und `minlength="3"` die Eingabe bereits im HTML prüfen. Der Fehler im JavaScript war die Verwendung von `=` statt `===`.
+
+
+### Aufgabe A6: Sicherheit
+
+Für das Projekt wurden folgende Sicherheitsaspekte überprüft:
+
+1. **Keine Geheimnisse:** API-Keys werden nicht im Quellcode gespeichert. `NEWS_API_TOKEN` und `RESEND_API_KEY` sind als Environment Variables in Vercel hinterlegt.
+
+2. **Fremde Daten als Text:** Daten aus der News-API und Meldungen werden mit `textContent` in das DOM eingefügt. `innerHTML` wird dafür nicht verwendet.
+
+3. **Eingaben prüfen:** Formulareingaben werden unter anderem mit `required`, `minlength`, passenden Eingabetypen und zusätzlichen JavaScript-Prüfungen validiert. Bei der Terminbuchung sind außerdem keine vergangenen Termine erlaubt und Termine können nur mittwochs oder freitags angefragt werden.
+
+4. **HTTPS:** Die veröffentlichte Website sowie die API-Aufrufe laufen über HTTPS.
+
+5. **GitHub-Sicherheit:** Für den GitHub-Account ist 2FA aktiviert. Im Repository sind Dependabot, Secret Protection und Push Protection aktiviert.
+
+6. **Saubere Fehlermeldungen:** Nutzer erhalten verständliche Fehlermeldungen ohne Stacktraces oder interne technische Details.
+
+**XSS-Test:** Die Eingabe `<img src=x onerror=alert(1)>` wurde in den Eingabefeldern getestet. Es wurde kein JavaScript ausgeführt.

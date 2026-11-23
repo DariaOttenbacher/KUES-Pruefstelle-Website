@@ -1,5 +1,7 @@
 # KÜS Prüfstelle Website
 
+**Hinweis:** Diese README enthält die wichtigsten Informationen und eine allgemeine Beschreibung des Projekts. Die Bearbeitung und Dokumentation aller Übungs- und Hausaufgaben befindet sich in [AUFGABEN.md](./AUFGABEN.md).
+
 ## Projektbeschreibung
 
 Im August 2026 wurde im Rahmen einer Prüforganisation der KÜS eine Kfz-Prüfstelle eröffnet. Da bisher noch keine eigene Website vorhanden ist, wird im Rahmen des Moduls Web Engineering an der DHBW eine Website für die Prüfstelle entwickelt.
@@ -32,7 +34,25 @@ Zusätzlich soll das Benutzerprofil zukünftig die Verwaltung von Kontakt- und F
 
 ## Datenquelle
 
-Für die Standortkarte werden Kartendaten von OpenStreetMap verwendet. Die Adresse der Prüfstelle wird über geografische Koordinaten auf einer interaktiven Leaflet-Karte dargestellt. Dafür ist kein geheimer API-Key erforderlich.(mehr dazu im [AUFGABEN.md](./AUFGABEN.md).)
+Für die Website werden mehrere externe Dienste verwendet:
+
+### OpenStreetMap und Leaflet
+
+Für die Standortkarte werden Kartendaten von OpenStreetMap verwendet. Die Adresse der Prüfstelle wird über geografische Koordinaten auf einer interaktiven Leaflet-Karte dargestellt. Dafür ist kein geheimer API-Key erforderlich.
+
+### The News API
+
+Auf der Startseite werden aktuelle Nachrichten zu Themen wie Hauptuntersuchung, Abgasuntersuchung, Oldtimer und Fahrzeugprüfung über The News API geladen.
+
+Die Anfrage an die News-API erfolgt serverseitig über die Vercel-Funktion `/api/news`. Der benötigte API-Key wird aus Sicherheitsgründen nicht im Frontend oder im GitHub-Repository gespeichert, sondern als Environment Variable `NEWS_API_TOKEN` in Vercel hinterlegt.
+
+### Resend
+
+Für die Online-Terminanfrage wird Resend verwendet. Nach dem Absenden des Formulars werden die eingegebenen Kontaktdaten und der gewünschte Termin über die Vercel-Funktion `/api/termin` an Resend übergeben und anschließend per E-Mail versendet.
+
+Der hierfür benötigte API-Key wird ebenfalls nicht im Quellcode gespeichert, sondern als Environment Variable `RESEND_API_KEY` in Vercel hinterlegt.
+
+Weitere Informationen zur Umsetzung befinden sich in [AUFGABEN.md](./AUFGABEN.md).
 
 ## Lokale Ausführung
 
@@ -70,6 +90,8 @@ http://localhost:5173/
 
 ## Verwendete Technologien
 
+## Verwendete Technologien
+
 - HTML5
 - CSS3
 - Tailwind CSS
@@ -77,7 +99,12 @@ http://localhost:5173/
 - Vite
 - Git und GitHub
 - GitHub Actions
-- GitHub Pages
+- Vercel
+- Vercel Serverless Functions
+- Leaflet
+- OpenStreetMap
+- The News API
+- Resend
 
 ## Geplante Erweiterungen
 
