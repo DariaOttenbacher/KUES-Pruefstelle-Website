@@ -79,6 +79,17 @@ if (newsAusgabe) {
   const datumFeld = document.querySelector("#datum");
   const terminMeldung = document.querySelector("#termin-meldung");
 
+  // State - Render()
+  const state = {
+  meldung: ""
+};
+
+function render() {
+  if (terminMeldung) {
+    terminMeldung.textContent = state.meldung;
+  }
+}
+
   if (terminFormular && datumFeld && terminMeldung) {
 
     // Vergangene Tage im Kalender sperren.
@@ -99,8 +110,9 @@ if (newsAusgabe) {
 
     // 3 = Mittwoch, 5 = Freitag
     if (wochentag !== 3 && wochentag !== 5) {
-      terminMeldung.textContent =
-        "Termine sind nur Mittwochs und Freitags möglich.";
+      state.meldung =
+        "Termine sind nur mittwochs und freitags möglich.";
+      render();
       return;
     }
 
@@ -126,14 +138,16 @@ try {
     throw new Error("E-Mail konnte nicht gesendet werden.");
   }
 
-  terminMeldung.textContent =
-    "Ihre Terminanfrage wurde erfolgreich gesendet.";
+  state.meldung =
+     "Ihre Terminanfrage wurde erfolgreich gesendet.";
+  render();
 
   terminFormular.reset();
 
 } catch (fehler) {
-  terminMeldung.textContent =
+  state.meldung =
     "Die Terminanfrage konnte nicht gesendet werden.";
+  render();
 }
   });
 }
