@@ -150,14 +150,13 @@ if (newsAusgabe) {
 // TERMINFORMULAR
 // ==============================
 
-const terminFormular =
-  document.querySelector("#termin-formular");
+const terminFormular = document.querySelector("#termin-formular");
 
-const datumFeld =
-  document.querySelector("#datum");
+const datumFeld = document.querySelector("#datum");
 
-const terminMeldung =
-  document.querySelector("#termin-meldung");
+const terminMeldung = document.querySelector("#termin-meldung");
+
+const terminButton = document.querySelector("#termin-button");
 
 
 // State - Render()
@@ -256,6 +255,9 @@ if (terminFormular && datumFeld && terminMeldung) {
           "Die Terminanfrage konnte nicht gesendet werden.";
 
         render();
+      } finally {
+        terminButton.disabled = false;
+        terminButton.textContent = "Termin anfragen";
       }
     }
   );
