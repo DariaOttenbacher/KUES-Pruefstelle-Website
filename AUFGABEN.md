@@ -279,3 +279,10 @@ Die Resend-Bibliothek wird verwendet, um über die Resend API Terminanfragen per
 Wir verwenden Resend weiterhin. Die Bibliothek vereinfacht den E-Mail-Versand, da die Resend API über eine fertige Node.js-Schnittstelle angesprochen werden kann. Dadurch müssen die API-Anfragen für den E-Mail-Versand nicht vollständig selbst implementiert werden. Die Bibliothek ist außerdem mit 32,2 kB komprimiert relativ klein und wird sehr häufig heruntergeladen.
 
 ![![alt text](image-1.png)](image.png)
+
+### Bonusaufgabe B: Caching
+
+Die Nachrichten werden für **eine Minute im `localStorage`** gespeichert. Bei einem erneuten Seitenaufruf innerhalb dieser Minute werden die gespeicherten Daten verwendet, ohne eine neue API-Anfrage auszuführen.
+
+- **Vorher:** 3 Seitenaufrufe = 3 Anfragen
+- **Nachher:** 3 Seitenaufrufe innerhalb einer Minute = 1 Anfrage
