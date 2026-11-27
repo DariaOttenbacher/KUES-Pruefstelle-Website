@@ -116,6 +116,20 @@ Die Website könnte später um zusätzliche Funktionen erweitert werden:
 - Online-Bewerbungen
 - Upload von Lebensläufen und Bewerbungsunterlagen
 
+## KI-Log
+
+Im Projekt wurde KI unterstützend eingesetzt, unter anderem für:
+
+- Erklärungen zu HTML, CSS, JavaScript und APIs
+- Fehlersuche und Überprüfung von bestehendem Code
+- Verbesserung der Fehlerbehandlung bei API-Anfragen
+- Unterstützung bei der Umsetzung von `localStorage` und Caching
+- Überprüfung und Verbesserung der Projektdokumentation
+
+Die vorgeschlagenen Änderungen wurden vor der Übernahme geprüft und an die bestehende Projektstruktur angepasst.
+
+Weitere Informationen zum KI-Log sowie dokumentierte Fehler und Korrekturen befinden sich in [AUFGABEN.md](./AUFGABEN.md) unter **Übungsblatt 6 – A5**.
+
 ## Screenshot
 
 ![Leistungen-Seite der KÜS Prüfstelle Website](<images/Screenshot Leistungen-1.png>)
