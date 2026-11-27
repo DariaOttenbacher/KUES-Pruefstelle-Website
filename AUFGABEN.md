@@ -214,7 +214,7 @@ Beim Start der Seite wird der gespeicherte Wert wieder ausgelesen. Ungültige od
 
 ## Übungsblatt 7
 
-### A1 – Verwendete APIs
+### A1: Verwendete APIs
 
 Für das Projekt werden bereits drei externe Dienste verwendet: OpenStreetMap Nominatim für die Standortsuche, The News API für aktuelle Nachrichten und Resend für den E-Mail-Versand der Terminanfragen.
 
@@ -244,3 +244,38 @@ Resend wird verwendet, um die über das Terminformular eingegebenen Daten per E-
 - **Rate-Limit:** Im verwendeten Free-Tarif sind maximal **10 API-Anfragen pro Sekunde**, **100 E-Mails pro Tag** und **3.000 E-Mails pro Monat** möglich.
 - **CORS:** Der Browser kommuniziert nicht direkt mit Resend. Das Formular sendet die Daten an eine Vercel Serverless Function. Diese übernimmt anschließend den E-Mail-Versand über Resend. Dadurch bleibt der API-Key geheim.
 - **Benötigte Daten:** `name`, `email`, `telefon` und `datum` aus der Terminanfrage.
+
+
+### A4: Bewertung der verwendeten Bibliotheken
+
+Im Projekt werden unter anderem die Bibliotheken **Leaflet** und **Resend** verwendet. Beide Bibliotheken wurden auf npmjs.com und Bundlephobia geprüft.
+
+#### Leaflet
+
+Leaflet wird für die Darstellung der interaktiven OpenStreetMap-Karte auf der Kontaktseite verwendet.
+
+- **Downloads pro Woche:** 11.510.175
+- **Aktuelle Version:** 1.9.4
+- **Größe:** 145 kB minified bzw. 41,7 kB minified + gzip
+- **Lizenz:** BSD-2-Clause
+- **Abhängigkeiten:** keine
+
+**Entscheidung:**  
+Wir verwenden Leaflet weiterhin. Die Bibliothek eignet sich gut für das Projekt, da damit die OpenStreetMap-Karte einfach dargestellt und um Marker und Popups ergänzt werden kann. Leaflet hat keine zusätzlichen Abhängigkeiten und wird sehr häufig heruntergeladen.
+
+![![alt text](image-3.png)](image-2.png)
+
+#### Resend
+
+Die Resend-Bibliothek wird verwendet, um über die Resend API Terminanfragen per E-Mail zu versenden.
+
+- **Downloads pro Woche:** 16.838.803
+- **Aktuelle Version:** 6.41.0
+- **Größe:** 107,3 kB minified bzw. 32,2 kB minified + gzip
+- **Lizenz:** MIT
+- **Abhängigkeiten:** 2
+
+**Entscheidung:**  
+Wir verwenden Resend weiterhin. Die Bibliothek vereinfacht den E-Mail-Versand, da die Resend API über eine fertige Node.js-Schnittstelle angesprochen werden kann. Dadurch müssen die API-Anfragen für den E-Mail-Versand nicht vollständig selbst implementiert werden. Die Bibliothek ist außerdem mit 32,2 kB komprimiert relativ klein und wird sehr häufig heruntergeladen.
+
+![![alt text](image-1.png)](image.png)
