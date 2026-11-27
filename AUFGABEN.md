@@ -310,3 +310,32 @@ Das Formular, die Validierung sowie Resend und die Vercel-Funktion werden nicht 
 
 #### Technik
 Die bestehende JavaScript-Funktion des Terminformulars wird um den Ladezustand des Buttons erweitert.
+
+![A3: Ladezustand der Terminanfrage (Realisierung)](image-5.png)
+
+
+### A4: Mindestanforderungen
+
+Alle Mindestanforderungen des Projekts sind erfüllt:
+
+- [x] **Mehrere Seiten mit Navigation** – Die Website besteht aus mehreren HTML-Seiten mit gemeinsamer Navigation.
+- [x] **Semantisches HTML und Formular mit Validierung** – Es werden semantische HTML-Elemente sowie ein validiertes Terminformular verwendet.
+- [x] **Responsive und mindestens drei wiederverwendete Komponenten** – Die Website ist responsiv. Wiederverwendet werden unter anderem Navbar, Footer und Leistungskarten.
+- [x] **JavaScript-Interaktion ohne Reload** – Terminanfragen, Benutzerinteraktionen und Änderungen der Anzeige funktionieren ohne Neuladen der Seite.
+- [x] **Daten aus einer öffentlichen API und sichtbarer Fehlerfall** – OpenStreetMap/Nominatim und The News API werden verwendet. Fehler werden dem Nutzer sichtbar angezeigt.
+- [x] **Deployment unter öffentlicher URL** – Die Website ist über Vercel öffentlich erreichbar.
+- [x] **README mit KI-Log** – Die Projektdokumentation befindet sich in der README. Der KI-Log ist in `AUFGABEN.md` dokumentiert und in der README verlinkt.
+
+
+### Bonusaufgabe B: Vite-Build mit Deployment-Action
+
+Das Projekt verwendet eine GitHub Action für den automatischen Build und das Deployment auf GitHub Pages.
+
+Bei jedem Push auf den `main`-Branch werden automatisch:
+
+- die npm-Abhängigkeiten installiert,
+- das Projekt mit `npm run build` gebaut,
+- der `dist`-Ordner erzeugt,
+- und die fertige Website auf GitHub Pages veröffentlicht.
+
+Damit sind Build und Deployment automatisiert.
