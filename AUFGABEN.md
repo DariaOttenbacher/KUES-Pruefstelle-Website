@@ -208,3 +208,39 @@ Beim Start der Seite wird der gespeicherte Wert wieder ausgelesen. Ungültige od
 - Leistung mit „Merken“ ausgewählt → nach `F5` weiterhin als „Gemerkt ✓“ angezeigt.
 - Ungültigen Wert `abc` manuell im `localStorage` eingetragen → nach dem Neuladen wurde der ungültige Wert abgefangen und die Seite funktionierte weiterhin.
 ![Local Storage](images/local-storage.png)
+
+
+----------------------------------------------------------------------------------
+
+## Übungsblatt 7
+
+### A1 – Verwendete APIs
+
+Für das Projekt werden bereits drei externe Dienste verwendet: OpenStreetMap Nominatim für die Standortsuche, The News API für aktuelle Nachrichten und Resend für den E-Mail-Versand der Terminanfragen.
+
+#### OpenStreetMap Nominatim
+
+Nominatim wird verwendet, um die Adresse der KÜS-Prüfstelle in Koordinaten umzuwandeln. Die gelieferten Koordinaten werden anschließend mit Leaflet auf einer OpenStreetMap-Karte dargestellt.
+
+- **API-Key:** nicht erforderlich
+- **Rate-Limit:** maximal 1 Anfrage pro Sekunde
+- **CORS:** Der Abruf erfolgt direkt im Browser über `fetch()`.
+- **Benötigte Daten:** `lat` und `lon` für Breitengrad und Längengrad. Weitere Felder der Antwort werden aktuell nicht benötigt.
+
+#### The News API
+
+The News API wird verwendet, um aktuelle Nachrichten zu Themen wie Hauptuntersuchung, Abgasuntersuchung, Oldtimer und Fahrzeugprüfung abzurufen.
+
+- **API-Key:** erforderlich. Der Token wird als Umgebungsvariable `NEWS_API_TOKEN` in Vercel gespeichert und ist dadurch nicht im Frontend sichtbar.
+- **Rate-Limit:** Im verwendeten Free-Tarif sind maximal **100 API-Anfragen pro Tag** möglich.
+- **CORS:** Die News API wird nicht direkt vom Browser aufgerufen. Die Anfrage läuft über eine Vercel Serverless Function, die anschließend die Daten an das Frontend zurückgibt. Dadurch bleibt der API-Token geheim.
+- **Benötigte Daten:** hauptsächlich `title`, `description` und `url`. Zusätzlich werden `image_url`, `published_at` und `source` verarbeitet.
+
+#### Resend
+
+Resend wird verwendet, um die über das Terminformular eingegebenen Daten per E-Mail zu versenden.
+
+- **API-Key:** erforderlich. Der Schlüssel wird als Umgebungsvariable `RESEND_API_KEY` in Vercel gespeichert und ist dadurch nicht im Frontend sichtbar.
+- **Rate-Limit:** Im verwendeten Free-Tarif sind maximal **10 API-Anfragen pro Sekunde**, **100 E-Mails pro Tag** und **3.000 E-Mails pro Monat** möglich.
+- **CORS:** Der Browser kommuniziert nicht direkt mit Resend. Das Formular sendet die Daten an eine Vercel Serverless Function. Diese übernimmt anschließend den E-Mail-Versand über Resend. Dadurch bleibt der API-Key geheim.
+- **Benötigte Daten:** `name`, `email`, `telefon` und `datum` aus der Terminanfrage.
