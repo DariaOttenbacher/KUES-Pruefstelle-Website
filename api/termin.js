@@ -20,9 +20,7 @@ export default async function handler(req, res) {
   try {
     const { data, error } = await resend.emails.send({
       from: "KÜS Terminanfrage <onboarding@resend.dev>",
-
-      // Zunächst deine bei Resend verwendete E-Mail-Adresse einsetzen
-        to: ["ottenbacher.dari.a25@student.dhbw-karlsruhe.de"],
+      to: ["ottenbacher.dari.a25@student.dhbw-karlsruhe.de"],
 
       subject: `Neue Terminanfrage von ${name}`,
 
@@ -37,11 +35,7 @@ Wunschtermin: ${datum}
     });
 
     if (error) {
-      console.error("Resend-Fehler:", error);
-
-      return res.status(500).json({
-        fehler: "E-Mail konnte nicht gesendet werden."
-      });
+      throw new Error(error.message);
     }
 
     return res.status(200).json({
@@ -50,7 +44,10 @@ Wunschtermin: ${datum}
     });
 
   } catch (fehler) {
-    console.error("Fehler beim E-Mail-Versand:", fehler);
+    console.error(
+      "Fehler beim E-Mail-Versand:",
+      fehler
+    );
 
     return res.status(500).json({
       fehler: "E-Mail konnte nicht gesendet werden."

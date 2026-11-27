@@ -1,18 +1,34 @@
 const adresse = "Leopoldschanze 34, 79206 Breisach am Rhein";
 
-fetch(
-  `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(adresse)}`
-)
-  .then(response => response.json())
-  .then(data => {
+async function ladeKarte() {
+  const status = document.getElementById("map-status");
 
-    if (data.length === 0) {
-      console.log("Adresse wurde nicht gefunden.");
+  // Zustand 1: Lädt
+  status.textContent = "Karte wird geladen...";
+
+  try {
+    const url =
+      `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(adresse)}`;
+
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
+    }
+
+    const daten = await res.json();
+
+    // Zustand 3: Nichts gefunden
+    if (daten.length === 0) {
+      status.textContent = "Adresse wurde nicht gefunden.";
       return;
     }
 
-    const lat = data[0].lat;
-    const lon = data[0].lon;
+    // Zustand 2: Daten da
+    status.textContent = "";
+
+    const lat = daten[0].lat;
+    const lon = daten[0].lon;
 
     const map = L.map("map").setView([lat, lon], 16);
 
@@ -28,7 +44,15 @@ fetch(
       .bindPopup("KÜS Prüfstelle Breisach am Rhein")
       .openPopup();
 
-  })
-  .catch(error => {
-    console.error("Fehler beim Laden der Karte:", error);
-  });
+  } catch (error) {
+    // Zustand 4: Fehler
+    status.textContent = "Karte konnte nicht geladen werden.";
+
+    console.error(
+      "Fehler beim Laden der Karte:",
+      error
+    );
+  }
+}
+
+ladeKarte();

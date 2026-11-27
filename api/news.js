@@ -40,19 +40,11 @@ export default async function handler(req, res) {
       const antwort = await fetch(url);
 
       if (!antwort.ok) {
-        const fehlermeldung = await antwort.text();
-
-        console.error(
-          `News-API-Fehler bei "${thema}":`,
-          antwort.status,
-          fehlermeldung
-        );
-
-        // Bei einem fehlerhaften Thema trotzdem weitermachen.
-        continue;
+        throw new Error(`HTTP ${antwort.status}`);
       }
 
       const daten = await antwort.json();
+
       ergebnisse.push(...(daten.data ?? []));
     }
 
@@ -97,7 +89,7 @@ export default async function handler(req, res) {
         source: artikel.source
       }));
 
-    // 6 Stunden Cache statt nur 30 Minuten.
+    // 6 Stunden Cache
     res.setHeader(
       "Cache-Control",
       "public, s-maxage=21600, stale-while-revalidate=86400"
@@ -106,6 +98,7 @@ export default async function handler(req, res) {
     return res.status(200).json({
       artikel: passendeArtikel
     });
+
   } catch (fehler) {
     console.error(
       "Fehler beim Laden der Nachrichten:",
