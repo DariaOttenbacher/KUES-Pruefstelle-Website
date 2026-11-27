@@ -12,6 +12,7 @@ async function ladeKarte() {
 
     const res = await fetch(url);
 
+    // HTTP-Fehler prüfen
     if (!res.ok) {
       throw new Error(`HTTP ${res.status}`);
     }
@@ -24,15 +25,12 @@ async function ladeKarte() {
       return;
     }
 
-    // Zustand 2: Daten da
-    status.textContent = "";
-
     const lat = daten[0].lat;
     const lon = daten[0].lon;
 
     const map = L.map("map").setView([lat, lon], 16);
 
-    L.tileLayer(
+    const tiles = L.tileLayer(
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       {
         attribution: "&copy; OpenStreetMap contributors"
@@ -43,6 +41,12 @@ async function ladeKarte() {
       .addTo(map)
       .bindPopup("KÜS Prüfstelle Breisach am Rhein")
       .openPopup();
+
+    // Zustand 2: Daten da
+    // Erst entfernen, wenn die Kartendaten geladen wurden.
+    tiles.on("load", () => {
+      status.textContent = "";
+    });
 
   } catch (error) {
     // Zustand 4: Fehler
