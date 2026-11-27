@@ -2,8 +2,6 @@
 // NEWS
 // ==============================
 
-console.log("NEUER JS-CODE IST GELADEN");
-
 const newsAusgabe = document.querySelector("#news-ausgabe");
 
 const NEWS_CACHE_KEY = "newsCache";

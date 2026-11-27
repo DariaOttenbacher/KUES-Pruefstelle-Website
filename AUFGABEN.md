@@ -286,3 +286,5 @@ Die Nachrichten werden für **eine Minute im `localStorage`** gespeichert. Bei e
 
 - **Vorher:** 3 Seitenaufrufe = 3 Anfragen
 - **Nachher:** 3 Seitenaufrufe innerhalb einer Minute = 1 Anfrage
+
+![alt text](image-4.png)
