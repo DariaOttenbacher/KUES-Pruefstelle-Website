@@ -288,3 +288,25 @@ Die Nachrichten werden für **eine Minute im `localStorage`** gespeichert. Bei e
 - **Nachher:** 3 Seitenaufrufe innerhalb einer Minute = 1 Anfrage
 
 ![alt text](image-4.png)
+
+
+----------------------------------------------------------------------------------
+
+## Übungsblatt 8
+
+### A1: Spec "Ladezustand bei der Terminanfrage"
+
+#### Ziel
+Beim Absenden einer Terminanfrage zeigt der Button **„Wird gesendet...“** und wird vorübergehend deaktiviert. So wird mehrfaches Absenden verhindert.
+
+#### Nicht Teil davon
+Das Formular, die Validierung sowie Resend und die Vercel-Funktion werden nicht verändert.
+
+#### Akzeptanzkriterien
+- Während des Sendens ist der Button deaktiviert und zeigt **„Wird gesendet...“**.
+- Mehrfaches Absenden ist nicht möglich.
+- Nach Erfolg oder Fehler wird der Button wieder aktiviert.
+- Die vorhandene Erfolgs- bzw. Fehlermeldung wird angezeigt.
+
+#### Technik
+Die bestehende JavaScript-Funktion des Terminformulars wird um den Ladezustand des Buttons erweitert.
