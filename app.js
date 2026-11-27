@@ -221,6 +221,9 @@ if (terminFormular && datumFeld && terminMeldung) {
       const telefon =
         document.querySelector("#telefon").value;
 
+      terminButton.disabled = true;
+      terminButton.textContent = "Wird gesendet...";
+
       try {
         const antwort = await fetch("/api/termin", {
           method: "POST",
